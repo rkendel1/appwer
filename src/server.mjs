@@ -70,7 +70,7 @@ async function api(request, response, path) {
 const server = createServer(async (request, response) => {
   const url = new URL(request.url ?? "/", "http://localhost");
   if (url.pathname.startsWith("/api/")) {
-    try { await api(request, response, url.pathname); } catch (error) { json(response, 500, { error: "Unable to access durable application state.", detail: error instanceof Error ? error.message : String(error) }); }
+    try { await api(request, response, url.pathname); } catch (error) { console.error(error); json(response, 500, { error: "Unable to access durable application state." }); }
     return;
   }
   if (url.pathname === "/" || url.pathname === "/index.html") {
