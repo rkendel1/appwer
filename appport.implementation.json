@@ -1,0 +1,30 @@
+{
+  "protocol": "AppPort/runtime-implementation/1",
+  "applicationId": "com.rkendel1.taskboard",
+  "implementationId": "impl_com-rkendel1-taskboard",
+  "implements": [
+    {
+      "name": "tasks.create",
+      "version": 1
+    },
+    {
+      "name": "tasks.delete",
+      "version": 1
+    },
+    {
+      "name": "tasks.list",
+      "version": 1
+    },
+    {
+      "name": "tasks.update",
+      "version": 1
+    }
+  ],
+  "runtime": {
+    "engine": "wasm",
+    "artifactHash": "fbf61a3bd8d43d0d821ccec17fd2ddeb9f805bb79230f4f538d18b614b3d71e6"
+  },
+  "build": {
+    "artifactPath": "appport/wasm/application.wasm"
+  }
+}

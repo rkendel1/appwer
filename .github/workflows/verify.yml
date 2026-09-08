@@ -1,0 +1,21 @@
+name: Verify Task Board
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run app:build
+      - run: npm run app:package
+      - run: npm run app:verify
+      - run: test "$(sha256sum artifacts/task-board.app/application.wasm | cut -d' ' -f1)" = "$(node -e 'const m=require("./artifacts/task-board.app/manifest"); process.stdout.write(m.artifact.hash)')"

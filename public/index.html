@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Task Board</title><style>
+body{font:16px system-ui;max-width:900px;margin:2rem auto;padding:0 1rem;color:#17202a}header{display:flex;justify-content:space-between;align-items:center}main{display:grid;grid-template-columns:1fr 1fr;gap:1rem}section{border:1px solid #d6dce1;border-radius:8px;padding:1rem}input,textarea,select,button{font:inherit;padding:.5rem;margin:.25rem 0;width:100%;box-sizing:border-box}button{cursor:pointer;background:#173b57;color:white;border:0;border-radius:4px}.task{border-top:1px solid #ddd;padding:.75rem 0}.muted{color:#667}dt{font-weight:bold;display:inline}dd{display:inline;margin:0 0 0 .4rem}
+</style></head>
+<body><header><h1>Task Board</h1><span id="version"></span></header><p id="message" class="muted"></p><main>
+<section><h2>Tasks</h2><form id="task-form"><input name="title" placeholder="Task title" required><textarea name="description" placeholder="Description"></textarea><button>Create task</button></form><div id="tasks"></div></section>
+<section><h2>Application status</h2><dl id="status"></dl><h3>GitHub source</h3><dl id="github"></dl></section>
+</main><script type="module" src="/app.js"></script></body></html>

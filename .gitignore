@@ -1,0 +1,5 @@
+node_modules/
+.state/
+appport/generated/
+appport/manifest.json
+*.appbundle

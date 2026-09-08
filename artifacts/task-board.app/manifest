@@ -1,0 +1,332 @@
+{
+  "protocol": "AppPort/application-bundle/1",
+  "packageReference": "com.rkendel1.taskboard@1.0.0",
+  "application": {
+    "id": "com.rkendel1.taskboard",
+    "name": "Task Board",
+    "version": "1.0.0"
+  },
+  "appBoundryApplicationId": "com.rkendel1.taskboard",
+  "contractFingerprint": "91ebe09fa0ce51c87a947f3b4500579beb20b64a011e45302aa5e1bf803c30b9",
+  "verification": {
+    "protocol": "AppPort/application-package-verification/1",
+    "ready": true,
+    "errors": [],
+    "warnings": [],
+    "provides": [
+      {
+        "name": "tasks.create",
+        "version": 1
+      },
+      {
+        "name": "tasks.delete",
+        "version": 1
+      },
+      {
+        "name": "tasks.list",
+        "version": 1
+      },
+      {
+        "name": "tasks.update",
+        "version": 1
+      }
+    ],
+    "requires": [],
+    "implementations": [
+      {
+        "capability": "tasks.create@1",
+        "status": "bound"
+      },
+      {
+        "capability": "tasks.delete@1",
+        "status": "bound"
+      },
+      {
+        "capability": "tasks.list@1",
+        "status": "bound"
+      },
+      {
+        "capability": "tasks.update@1",
+        "status": "bound"
+      }
+    ]
+  },
+  "artifact": {
+    "path": "application.wasm",
+    "format": "wasm/1",
+    "hash": "fbf61a3bd8d43d0d821ccec17fd2ddeb9f805bb79230f4f538d18b614b3d71e6"
+  },
+  "contract": {
+    "protocol": "AppBoundry/contract/1",
+    "application": {
+      "id": "com.rkendel1.taskboard",
+      "name": "Task Board",
+      "version": "1.0.0"
+    },
+    "contractRevision": 1,
+    "contractFingerprint": "91ebe09fa0ce51c87a947f3b4500579beb20b64a011e45302aa5e1bf803c30b9",
+    "provides": [
+      {
+        "name": "tasks.create",
+        "version": 1,
+        "kind": "request",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "description"
+          ]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "title",
+            "description",
+            "status",
+            "createdAt",
+            "updatedAt"
+          ]
+        },
+        "authorization": [],
+        "idempotency": "unsupported",
+        "concurrency": {
+          "mode": "parallel"
+        },
+        "emits": [],
+        "deprecated": false
+      },
+      {
+        "name": "tasks.delete",
+        "version": 1,
+        "kind": "request",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "deleted": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "deleted"
+          ]
+        },
+        "authorization": [],
+        "idempotency": "unsupported",
+        "concurrency": {
+          "mode": "parallel"
+        },
+        "emits": [],
+        "deprecated": false
+      },
+      {
+        "name": "tasks.list",
+        "version": 1,
+        "kind": "request",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "id",
+                  "title",
+                  "description",
+                  "status",
+                  "createdAt",
+                  "updatedAt"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tasks"
+          ]
+        },
+        "authorization": [],
+        "idempotency": "unsupported",
+        "concurrency": {
+          "mode": "parallel"
+        },
+        "emits": [],
+        "deprecated": false
+      },
+      {
+        "name": "tasks.update",
+        "version": 1,
+        "kind": "request",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "title",
+            "description",
+            "status"
+          ]
+        },
+        "outputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "updatedAt": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "title",
+            "description",
+            "status",
+            "createdAt",
+            "updatedAt"
+          ]
+        },
+        "authorization": [],
+        "idempotency": "unsupported",
+        "concurrency": {
+          "mode": "parallel"
+        },
+        "emits": [],
+        "deprecated": false
+      }
+    ],
+    "requires": []
+  },
+  "implementation": {
+    "protocol": "AppPort/runtime-implementation/1",
+    "applicationId": "com.rkendel1.taskboard",
+    "implementationId": "impl_com-rkendel1-taskboard",
+    "implements": [
+      {
+        "name": "tasks.create",
+        "version": 1
+      },
+      {
+        "name": "tasks.delete",
+        "version": 1
+      },
+      {
+        "name": "tasks.list",
+        "version": 1
+      },
+      {
+        "name": "tasks.update",
+        "version": 1
+      }
+    ],
+    "runtime": {
+      "engine": "wasm",
+      "artifactHash": "fbf61a3bd8d43d0d821ccec17fd2ddeb9f805bb79230f4f538d18b614b3d71e6"
+    }
+  },
+  "immutable": true,
+  "packageIdentity": {
+    "reference": "com.rkendel1.taskboard@1.0.0",
+    "algorithm": "sha256",
+    "digest": "2434334dceac3c951463631b708b894a42a2964fd521d5ce8dad0c32283e2ace",
+    "contentAddress": "sha256:2434334dceac3c951463631b708b894a42a2964fd521d5ce8dad0c32283e2ace",
+    "immutable": true
+  }
+}
