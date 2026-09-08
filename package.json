@@ -1,0 +1,26 @@
+{
+  "name": "appboundry-task-board",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node src/server.mjs",
+    "test": "node --test",
+    "app:build": "appport app build --entry src/application.mjs --artifact appport/wasm/application.wasm",
+    "app:package": "appport app package --out artifacts/task-board.app --force",
+    "app:verify": "appboundry verify artifacts/task-board.app --json",
+    "app:certify": "npm run app:verify",
+    "app:hash": "sha256sum artifacts/task-board.app/application.wasm artifacts/task-board.app/manifest"
+  },
+  "dependencies": {
+    "@appport/sdk": "1.1.18",
+    "@feltdb/core": "0.8.8"
+  },
+  "devDependencies": {
+    "@appport/appboundry": "1.0.10",
+    "appport": "1.1.19"
+  }
+}
