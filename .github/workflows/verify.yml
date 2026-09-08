@@ -18,4 +18,4 @@ jobs:
       - run: npm run app:build
       - run: npm run app:package
       - run: npm run app:verify
-      - run: test "$(sha256sum artifacts/task-board.app/application.wasm | cut -d' ' -f1)" = "$(node -e 'const m=require("./artifacts/task-board.app/manifest"); process.stdout.write(m.artifact.hash)')"
+      - run: test "$(sha256sum artifacts/task-board.app/application.wasm | cut -d' ' -f1)" = "$(node -e 'const fs=require("node:fs"); const m=JSON.parse(fs.readFileSync("artifacts/task-board.app/manifest","utf8")); process.stdout.write(m.artifact.hash)')"
